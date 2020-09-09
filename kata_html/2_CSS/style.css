@@ -1,0 +1,16 @@
+/* Selector de etiqueta */
+h1 {
+  color: rgb(104, 217, 236);
+}
+/* Selector de clase */
+.root {
+  background-color: gray;
+}
+
+p {
+  color: blue;
+}
+
+.description {
+  color: rgba(12, 12, 12, 0.418);
+}

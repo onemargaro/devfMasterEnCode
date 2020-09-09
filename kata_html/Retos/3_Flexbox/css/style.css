@@ -1,0 +1,47 @@
+.red {
+  background-color: #ef2b2d;
+}
+
+.blue {
+  background-color: #002868;
+}
+
+.flag-container {
+  width: 890px;
+  height: 654px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.first,
+.third {
+  width: 25%;
+  height: 40%;
+}
+
+.second,
+.fourth {
+  width: 60%;
+  height: 40%;
+}
+
+.first {
+  border-right: 30px solid white;
+  border-bottom: 30px solid white;
+}
+.third {
+  border-right: 30px solid white;
+  border-top: 30px solid white;
+}
+
+.second {
+  border-left: 30px solid white;
+  border-bottom: 30px solid white;
+}
+
+.fourth {
+  border-left: 30px solid white;
+  border-top: 30px solid white;
+}

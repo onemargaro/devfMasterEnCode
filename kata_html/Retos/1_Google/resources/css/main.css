@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  background: url(../img/main_background.jpg) no-repeat center center fixed;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  /* background-color: rgb(70, 70, 126); */
+  background-size: cover;
+}
+
+figure {
+  margin: 0;
+}
+
+.root {
+  display: grid;
+  font-family: "Montserrat", sans-serif;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+}
+
+.header .header-nav {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  justify-content: end;
+}
+
+.header .header-nav .header-list {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto;
+  list-style: none;
+  padding: 8px;
+}
+
+.header .header-nav .header-list .header-list-item {
+  align-self: center;
+  display: inline-block;
+  padding: 8px;
+}
+
+.header .header-nav .header-list .header-list-item a {
+  color: white;
+  text-decoration: none;
+}
+
+.header .header-nav .header-list .header-list-item a.apps {
+  color: white;
+}
+
+.header .header-nav .header-list .header-list-item a.apps img,
+.header .header-nav .header-list .header-list-item a.profile-image img {
+  height: 25px;
+}
+
+.main {
+  display: grid;
+  justify-content: center;
+}
+
+.main .title {
+  align-self: end;
+  color: white;
+  font-size: 3em;
+  justify-self: center;
+}
+
+.main .searchbar {
+  padding: 8px;
+  position: relative;
+}
+
+.main .searchbar .searchbar-search-icon img,
+.main .searchbar .searchbar-micro-icon img {
+  width: 100%;
+  height: 100%;
+}
+.main .searchbar .searchbar-search-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 17px;
+  left: 16px;
+}
+
+.main .searchbar .searchbar-micro-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 17px;
+  right: 16px;
+}
+
+.main .searchbar .searchbar-input {
+  border-radius: 18px;
+  padding: 10px 30px;
+  width: 100%;
+}
+
+.main .most-visited {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto auto;
+}
+
+.main .most-visited .most-visited-card {
+  align-self: center;
+  display: grid;
+  justify-self: center;
+  padding: 8px;
+}
+
+.main .most-visited .most-visited-card a {
+  align-self: center;
+  display: grid;
+  justify-self: center;
+  text-decoration: none;
+}
+
+.main .most-visited .most-visited-card a .most-visited-card-img {
+  align-self: center;
+  background: lightgray;
+  border-radius: 50%;
+  height: 50px;
+  justify-self: center;
+  padding: 8px;
+  width: 50px;
+}
+
+.main .most-visited .most-visited-card a .most-visited-card-img img {
+  height: 100%;
+  width: 100%;
+}
+
+.main .most-visited .most-visited-card a .most-visited-card-title {
+  color: white;
+  font-size: 0.8em;
+  justify-self: center;
+}
+
+.footer {
+  position: absolute;
+  bottom: 16px;
+}
+
+.footer,
+.author {
+  color: white;
+}
