@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="first-exercise">
+      <div class="race_img">
+        <img src="https://i.ytimg.com/vi/JQ9mbvgpWEs/hqdefault.jpg" alt="Perrito" />
+      </div>
+      <button class="convert" onclick="switchDogHuman(event)">Convertir a humano</button>
+    </div>
+    <div class="second-exercise">
+      <div class="task">
+        <input type="checkbox" id="task1" onclick="completed(event)" />
+        <label for="task1">Prácticar estructuras de datos</label>
+      </div>
+      <div class="task">
+        <input type="checkbox" id="task2" onclick="completed(event)" />
+        <label for="task2">Jugar pokemon</label>
+      </div>
+      <div class="task">
+        <input type="checkbox" id="task3" onclick="completed(event)" />
+        <label for="task3">Leer 1 hora un libro</label>
+      </div>
+      <div class="task">
+        <input type="checkbox" id="task4" onclick="completed(event)" />
+        <label for="task4">Dar de comer a las mascotas</label>
+      </div>
+    </div>
+    <div class="third-exercise">
+      <div class="message"></div>
+      <button onclick="randomNumber()">Random Number</button>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

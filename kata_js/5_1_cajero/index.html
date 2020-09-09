@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cajero</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="atm_wrapper">
+        <h1 class="atm_title">ATM</h1>
+        <form class="atm_form" onsubmit="makeLogin();return false">
+          <div class="atm_field">
+            <label class="atm_label" for="name">Name</label>
+            <div class="atm_control">
+              <input
+                class="atm_input"
+                name="name"
+                type="text"
+                placeholder="Name"
+                required
+              />
+            </div>
+          </div>
+          <div class="atm_field">
+            <label class="atm_label" for="password">Password</label>
+            <div class="atm_control">
+              <input
+                class="atm_input"
+                name="password"
+                type="password"
+                placeholder="Password"
+                required
+              />
+            </div>
+          </div>
+          <button class="atm_login">Login</button>
+        </form>
+        <div class="atm_operations">
+          <button onclick="showBalance()">Consultar</button>
+          <button onclick="addToBalance()">Ingresar</button>
+          <button onclick="removeFromBalance()">Retirar</button>
+          <button onclick="logout()">Salir</button>
+        </div>
+      </div>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>

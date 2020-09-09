@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.atm_wrapper {
+  width: 400px;
+  height: 500px;
+  background-color: seagreen;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.atm_field {
+  margin-top: 1em;
+}
+
+.atm_label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.atm_input {
+  box-shadow: inset 0 0.0625em 0.125em rgba(10, 10, 10, 0.05);
+  max-width: 100%;
+  width: 100%;
+  display: inline-flex;
+  font-size: 1rem;
+  height: 2.5em;
+  justify-content: flex-start;
+  line-height: 1.5;
+  padding-bottom: calc(0.5em - 1px);
+  padding-left: calc(0.75em - 1px);
+  padding-right: calc(0.75em - 1px);
+  padding-top: calc(0.5em - 1px);
+  position: relative;
+  vertical-align: top;
+  border: none;
+}
+
+.atm_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.atm_login {
+  padding: 10px;
+  margin-top: 1em;
+}
+
+.atm_operations {
+  display: none;
+  flex-direction: column;
+  height: 50%;
+  justify-content: space-around;
+}
+
+.atm_operations button {
+  padding: 20px;
+  background-color: cadetblue;
+  color: white;
+  border-radius: 3px;
+}
