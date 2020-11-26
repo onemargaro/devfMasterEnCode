@@ -169,4 +169,3 @@ const ejercicio7 = () => {
   }
 };
 
-ejercicio1();
