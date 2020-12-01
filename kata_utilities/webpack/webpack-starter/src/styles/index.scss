@@ -1,0 +1,34 @@
+$primary: deeppink;
+$seconday: pink;
+$accent: purple;
+
+%h1-title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+  color: rgba(10, 10, 10, 0.8);
+}
+body {
+  font-size: 18px;
+  background-color: $primary;
+  text-align: center;
+  .cat {
+    width: 400px;
+    height: 500px;
+    display: block;
+    margin: 0 auto;
+  }
+  .two {
+    @extend %h1-title;
+  }
+  .three {
+    @extend %h1-title;
+  }
+  .holi {
+    @extend %h1-title;
+  }
+  .yup {
+    @extend %h1-title;
+  }
+}
