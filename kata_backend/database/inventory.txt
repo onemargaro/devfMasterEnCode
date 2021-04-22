@@ -1,0 +1,56 @@
+Un negocio quiere llevar el control de piezas que emplean en el día a día y los proveedores que suministran estas.
+
+De cada proveedor conocemos su nombre, dirección, ciudad, provincia y un código de proveedor que será único para cada uno de ellos.
+Nos interesa llevar un control de las piezas que nos suministra cada proveedor.
+Es importante conocer la cantidad de las diferentes piezas que nos suministra y en qué fecha lo hace.
+Tenga en cuenta que un mismo proveedor nos puede suministrar una pieza con el mismo código en diferentes fechas.
+
+El diseño de la base de datos debe permitir almacenar un histórico con todas las fechas y las cantidades que nos ha proporcionado un proveedor.
+Una misma pieza puede ser suministrada por diferentes proveedores.
+
+De cada pieza conocemos un código que será único, nombre, color, precio y categoría.
+Pueden existir varias categorías y para cada categoría hay un nombre y un código de categoría único.
+
+Una pieza solo puede pertenecer a una categoría.
+
+Ejercicio:
+
+Se trabajará en dos partes:
+
+Generar diagramas
+Generar el diagrama relacional
+Generar el diagrama entidad-relación
+
+Escribir el código SQL para generar los diagramas en nuestra base de datos
+Crear las tablas y sus relaciones en SQL a través de PG Admin
+Insertar algunos registros en las tablas generadas en el paso previo
+
+Piece
+  - id
+  - nombre
+  - color
+  - category_id
+
+Category:
+  - id
+  - name
+  - description
+  
+Provider
+   - id
+   - name
+   - direction
+   - provincia
+
+InventoryOrder
+   - id
+   - date
+   - provider_id
+   - amount
+   - piece_id
+   - price
+
+InventoryActual
+   - id
+   - piece_id
+   - 

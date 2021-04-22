@@ -1,0 +1,6 @@
+CREATE TABLE pets (
+	pet_id SERIAL PRIMARY KEY,
+	name VARCHAR(150) NOT NULL,
+	race VARCHAR(150) NOT NULL,
+	age SMALLINT,
+);
