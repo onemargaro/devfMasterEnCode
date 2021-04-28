@@ -1,4 +1,5 @@
-const express = require('express');
+import express from 'express';
+import routes from './routers/index.js';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -8,7 +9,7 @@ app.use(express.json());
 app.get("/", (req, res) => res.status(200).json({ message: "Hello World" }));
 
 // Rental
-app.use('/api/v1', require('./routers'));
+app.use('/api/v1', routes);
 console.log("Entorno: ", process.env.NODE_ENV);
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

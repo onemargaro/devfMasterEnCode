@@ -1,5 +1,7 @@
-const to = require('await-to-js').default;
-const { User } = require('../models');
+import to from 'await-to-js';
+import jwt from 'jsonwebtoken';
+import { User } from '../models/index.js';
+import { comparePasswords, hashPassword } from '../utils/hashPassword.js';
 
 const findAll = async (_, res) => {
     const [error, response] = await to(User.findAll());
@@ -62,12 +64,16 @@ const deleteOneById = async (req, res) => {
 }
 
 const create = async (req, res) => {
-    const { body: { first_name, last_name, email, phone, biography } } = req;
+    const { body: { first_name, last_name, email, phone, biography, password } } = req;
     const newUser = {
-        first_name, last_name, email, phone, biography
+        first_name, last_name, email, phone, biography, password
     };
 
-    const [error, users] = await to(User.create(newUser));
+    if (password) {
+        newUser.password = hashPassword(password);
+    }
+
+    const [error, _] = await to(User.create(newUser));
 
     if (error) {
         res.status(400).json({
@@ -80,12 +86,26 @@ const create = async (req, res) => {
     })
 }
 
+const login = async (req, res) => {
+    const { body: { password } } = req;
+    // Primero verificar que existe el usuario en la base de datos
+    const [error, user] = await to(User.findOne({ email: req.body.email }));
+    if (error || !user) return res.status(404).send({ message: error });
+    // Segundo, si el usuario existe. Revisar que la contraseña que proporciona sea correcta
+    const isMatch = await comparePasswords(password, user.password);
+    if (!isMatch) return res.status(401).send({ message: 'Unauthorized' });
+    // Tercero, si las contraseñas coinciden, generamos un JWT y respondemos con este
+    const token = jwt.sign(user, process.env.JWT_PRIVATE, { expiresIn: '1h' });
+    return res.status(200).json({ token });
+}
 
 
-module.exports = {
-    findAll,
+
+export default {
     create,
+    deleteOneById,
+    findAll,
     findOneById,
-    updateOneById,
-    deleteOneById
+    login,
+    updateOneById
 }

@@ -1,7 +1,9 @@
-const express = require('express');
+import express from 'express';
+import RentalRouter from './RentalRouter.js';
+import UserRouter from './UserRouter.js';
 const router = express.Router();
 
-router.use(require('./RentalRouter'))
-router.use(require('./UserRouter'))
+router.use(RentalRouter)
+router.use(UserRouter)
 
-module.exports = router;
+export default router;

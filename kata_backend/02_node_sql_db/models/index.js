@@ -1,7 +1,7 @@
-const Rental = require('./Rental');
-const User = require('./User');
+import Rental from './Rental.js';
+import User from './User.js';
 
-module.exports = {
+export {
     Rental,
     User
 }

@@ -1,7 +1,7 @@
-const RentalController = require('./RentalController');
-const UserController = require('./UserController');
+import RentalController from './RentalController.js';
+import UserController from './UserController.js';
 
-module.exports = {
+export {
     RentalController,
     UserController
 }

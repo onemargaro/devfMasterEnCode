@@ -1,7 +1,6 @@
-const express = require('express');
+import express from 'express';
+import { RentalController } from '../controllers/index.js';
 const router = express.Router();
-
-const { RentalController } = require('../controllers');
 
 // Create
 router.post('/rentals', RentalController.create);
@@ -20,4 +19,4 @@ router.delete('/rentals/:idRental', RentalController.deleteOneById);
 
 // Destroy One (borrado fisico)
 
-module.exports = router;
+export default router;

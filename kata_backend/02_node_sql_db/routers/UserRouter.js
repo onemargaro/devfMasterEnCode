@@ -1,7 +1,6 @@
-const express = require('express');
+import express from 'express';
+import { UserController } from '../controllers/index.js';
 const router = express.Router();
-
-const { UserController } = require('../controllers');
 
 // Create
 router.post('/users', UserController.create);
@@ -20,4 +19,8 @@ router.delete('/users/:idUser', UserController.deleteOneById);
 
 // Destroy One (borrado fisico)
 
-module.exports = router;
+// login
+router.post('/auth/login', UserController.login);
+
+
+export default router;

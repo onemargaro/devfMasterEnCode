@@ -1,5 +1,5 @@
-const to = require('await-to-js').default;
-const { Rental } = require('../models');
+import to from 'await-to-js';
+import { Rental } from '../models/index.js';
 
 const findAll = async (_, res) => {
     const [error, response] = await to(Rental.findAll());
@@ -83,7 +83,7 @@ const create = async (req, res) => {
 
 
 
-module.exports = {
+export default {
     findAll,
     create,
     findOneById,
