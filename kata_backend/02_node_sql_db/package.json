@@ -5,9 +5,9 @@
     "type": "module",
     "main": "index.js",
     "scripts": {
-        "dev": "NODE_ENV=development JWT_PRIVATE=mysecret nodemon index.js",
-        "staging": "NODE_ENV=staging JWT_PRIVATE=mysecret nodemon index.js",
-        "production": "NODE_ENV=production JWT_PRIVATE=mysecret node index.js",
+        "dev": "NODE_ENV=development JWT_TOKEN=mysecret nodemon index.js",
+        "staging": "NODE_ENV=staging JWT_TOKEN=mysecret nodemon index.js",
+        "production": "NODE_ENV=production JWT_TOKEN=mysecret node index.js",
         "migrate": "NODE_ENV=development knex migrate:latest",
         "test": "echo \"Error: no test specified\" && exit 1"
     },

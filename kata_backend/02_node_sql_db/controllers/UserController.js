@@ -1,4 +1,4 @@
-import to from 'await-to-js';
+import { to } from 'await-to-js';
 import jwt from 'jsonwebtoken';
 import { User } from '../models/index.js';
 import { comparePasswords, hashPassword } from '../utils/hashPassword.js';
@@ -8,7 +8,8 @@ const findAll = async (_, res) => {
     if (error) {
         return res.status(500).json({
             message: "Error obtained list of userss",
-            error
+            error,
+            response
         })
     }
     return res.status(200).json({
@@ -36,7 +37,11 @@ const findOneById = async (req, res) => {
 
 const updateOneById = async (req, res) => {
     const { idUser } = req.params;
-    const [error, response] = await to(User.updateOneById(idUser, req.body));
+    const updatedUser = JSON.parse(JSON.stringify(req.body));
+    if (updatedUser.password) {
+        updatedUser.password = await hashPassword(updatedUser.password);
+    }
+    const [error, response] = await to(User.updateOneById(idUser, updatedUser));
     if (error) {
         return res.status(404).json({
             message: "Provided id doesn't exist",
@@ -70,7 +75,7 @@ const create = async (req, res) => {
     };
 
     if (password) {
-        newUser.password = hashPassword(password);
+        newUser.password = await hashPassword(password);
     }
 
     const [error, _] = await to(User.create(newUser));
@@ -87,15 +92,13 @@ const create = async (req, res) => {
 }
 
 const login = async (req, res) => {
-    const { body: { password } } = req;
-    // Primero verificar que existe el usuario en la base de datos
-    const [error, user] = await to(User.findOne({ email: req.body.email }));
-    if (error || !user) return res.status(404).send({ message: error });
-    // Segundo, si el usuario existe. Revisar que la contraseña que proporciona sea correcta
-    const isMatch = await comparePasswords(password, user.password);
+    const [error, users] = await to(User.findOne({ email: req.body.email }));
+    if (error || !users) return res.status(404).send({ message: error });
+    const [user] = users;
+    const { user_id, first_name, password, email, phone } = user;
+    const isMatch = await comparePasswords(req.body.password, password);
     if (!isMatch) return res.status(401).send({ message: 'Unauthorized' });
-    // Tercero, si las contraseñas coinciden, generamos un JWT y respondemos con este
-    const token = jwt.sign(user, process.env.JWT_PRIVATE, { expiresIn: '1h' });
+    const token = jwt.sign({ user_id, first_name, email, phone }, process.env.JWT_TOKEN, { expiresIn: '1h' });
     return res.status(200).json({ token });
 }
 

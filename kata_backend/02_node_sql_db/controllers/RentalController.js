@@ -1,4 +1,4 @@
-import to from 'await-to-js';
+import { to } from 'await-to-js';
 import { Rental } from '../models/index.js';
 
 const findAll = async (_, res) => {
