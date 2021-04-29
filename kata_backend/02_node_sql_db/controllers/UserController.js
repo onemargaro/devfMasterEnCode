@@ -95,10 +95,11 @@ const login = async (req, res) => {
     const [error, users] = await to(User.findOne({ email: req.body.email }));
     if (error || !users) return res.status(404).send({ message: error });
     const [user] = users;
-    const { user_id, first_name, password, email, phone } = user;
+    const { user_id, first_name, password, email, phone, role } = user;
     const isMatch = await comparePasswords(req.body.password, password);
     if (!isMatch) return res.status(401).send({ message: 'Unauthorized' });
-    const token = jwt.sign({ user_id, first_name, email, phone }, process.env.JWT_TOKEN, { expiresIn: '1h' });
+    console.log(process.env.JWT_TOKEN_GENERATOR)
+    const token = jwt.sign({ user_id, first_name, email, phone, role }, process.env.JWT_TOKEN_GENERATOR, { expiresIn: '1h' });
     return res.status(200).json({ token });
 }
 

@@ -5,9 +5,9 @@
     "type": "module",
     "main": "index.js",
     "scripts": {
-        "dev": "NODE_ENV=development JWT_TOKEN=mysecret nodemon index.js",
-        "staging": "NODE_ENV=staging JWT_TOKEN=mysecret nodemon index.js",
-        "production": "NODE_ENV=production JWT_TOKEN=mysecret node index.js",
+        "dev": "NODE_ENV=development nodemon index.js",
+        "staging": "NODE_ENV=staging nodemon index.js",
+        "production": "NODE_ENV=production node index.js",
         "migrate": "NODE_ENV=development knex migrate:latest",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -17,6 +17,7 @@
     "dependencies": {
         "await-to-js": "^3.0.0",
         "bcrypt": "^5.0.1",
+        "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "jsonwebtoken": "^8.5.1",
         "knex": "^0.95.4",

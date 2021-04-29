@@ -1,12 +1,13 @@
 import express from 'express';
 import routes from './routers/index.js';
+import { showTime, verifyToken, checkRole } from './middlewares/index.js';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get("/", (req, res) => res.status(200).json({ message: "Hello World" }));
+app.get("/", showTime, verifyToken, checkRole('superadmin'), (_, res) => res.status(200).json({ message: "Hello World" }));
 
 // Rental
 app.use('/api/v1', routes);
