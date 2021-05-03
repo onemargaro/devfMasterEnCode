@@ -7,7 +7,7 @@
     "scripts": {
         "dev": "NODE_ENV=development nodemon index.js",
         "staging": "NODE_ENV=staging nodemon index.js",
-        "production": "NODE_ENV=production node index.js",
+        "start": "NODE_ENV=production node index.js",
         "migrate": "NODE_ENV=development knex migrate:latest",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -17,11 +17,14 @@
     "dependencies": {
         "await-to-js": "^3.0.0",
         "bcrypt": "^5.0.1",
+        "celebrate": "^14.0.0",
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
+        "express-winston": "^4.1.0",
         "jsonwebtoken": "^8.5.1",
         "knex": "^0.95.4",
         "nodemon": "^2.0.7",
-        "pg": "^8.6.0"
+        "pg": "^8.6.0",
+        "winston": "^3.3.3"
     }
 }

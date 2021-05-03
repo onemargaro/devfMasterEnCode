@@ -1,14 +1,17 @@
 // Update with your config settings.
 
-module.exports = {
+import dotenv from 'dotenv';
+dotenv.config({ path: '.env' });
+
+export default {
 
     development: {
         client: 'postgresql',
         connection: {
-            host: 'holi',
-            database: 'holi',
-            user: 'holi',
-            password: 'holi'
+            host: process.env.DB_HOST,
+            database: process.env.DB_NAME,
+            user: process.env.DB_USER,
+            password: process.env.DB_PASSWORD
         },
         pool: {
             min: 2,
@@ -22,10 +25,10 @@ module.exports = {
     staging: {
         client: 'postgresql',
         connection: {
-            host: 'holi',
-            database: 'holi',
-            user: 'holi',
-            password: 'holi'
+            host: process.env.DB_HOST,
+            database: process.env.DB_NAME,
+            user: process.env.DB_USER,
+            password: process.env.DB_PASSWORD
         },
         pool: {
             min: 2,
@@ -39,10 +42,10 @@ module.exports = {
     production: {
         client: 'postgresql',
         connection: {
-            host: 'holi',
-            database: 'holi',
-            user: 'holi',
-            password: 'holi'
+            host: process.env.DB_HOST,
+            database: process.env.DB_NAME,
+            user: process.env.DB_USER,
+            password: process.env.DB_PASSWORD
         },
         pool: {
             min: 2,

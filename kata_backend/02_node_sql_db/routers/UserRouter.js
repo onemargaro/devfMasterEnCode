@@ -1,9 +1,11 @@
 import express from 'express';
 import { UserController } from '../controllers/index.js';
+import { checkRole, verifyToken } from '../middlewares/index.js';
+import { UserValidator } from '../validators/index.js';
 const router = express.Router();
 
 // Create
-router.post('/users', UserController.create);
+router.post('/users', [UserValidator.create, verifyToken, checkRole('superadmin')], UserController.create);
 
 // Read all
 router.get('/users', UserController.findAll);

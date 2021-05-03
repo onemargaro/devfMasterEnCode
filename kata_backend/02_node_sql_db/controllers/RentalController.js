@@ -71,7 +71,7 @@ const create = async (req, res) => {
 
     if (error) {
         res.status(400).json({
-            message: err,
+            message: error,
         })
     }
 
